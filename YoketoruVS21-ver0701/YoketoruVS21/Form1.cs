@@ -15,7 +15,7 @@ namespace YoketoruVS21
     {
         const bool isDebug = true;
 
-        const int SpeedMax = 10;
+        const int SpeedMax = 15;
 
         const int PlayerMax = 1;
         const int EnemyMax = 10;
