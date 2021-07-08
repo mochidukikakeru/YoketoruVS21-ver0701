@@ -116,7 +116,7 @@ namespace YoketoruVS21
             this.gameOverLabel.AutoSize = true;
             this.gameOverLabel.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gameOverLabel.ForeColor = System.Drawing.Color.Black;
-            this.gameOverLabel.Location = new System.Drawing.Point(187, 156);
+            this.gameOverLabel.Location = new System.Drawing.Point(187, 108);
             this.gameOverLabel.Name = "gameOverLabel";
             this.gameOverLabel.Size = new System.Drawing.Size(210, 48);
             this.gameOverLabel.TabIndex = 6;
@@ -140,7 +140,7 @@ namespace YoketoruVS21
             this.clearLabel.AutoSize = true;
             this.clearLabel.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.clearLabel.ForeColor = System.Drawing.Color.Red;
-            this.clearLabel.Location = new System.Drawing.Point(215, 156);
+            this.clearLabel.Location = new System.Drawing.Point(211, 108);
             this.clearLabel.Name = "clearLabel";
             this.clearLabel.Size = new System.Drawing.Size(154, 48);
             this.clearLabel.TabIndex = 8;

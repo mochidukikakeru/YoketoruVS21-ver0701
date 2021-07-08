@@ -26,11 +26,10 @@ namespace YoketoruVS21
         int[] vx = new int[ChrMax];
         int[] vy = new int[ChrMax];
 
-        int itemCount=10;
-
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
+        const int StartTime = 100;
 
         const string PlayerText = "(・ω・)";
         const string EnemyText = "◆";
@@ -52,6 +51,10 @@ namespace YoketoruVS21
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
+
+        int itemCount = 0;
+        int time = 0;
+        int hiscore = 0;
 
         public Form1()
         {
@@ -125,14 +128,19 @@ namespace YoketoruVS21
                     startButton.Visible = false;
                     copyrightLabel.Visible = false;
                     hiLabel.Visible = false;
-
+                    
                     for(int i = EnemyIndex; i < ChrMax; i++)
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
                         vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        chrs[i].Visible = true;
                     }
+
+                    itemCount = ItemMax;
+                    time = StartTime+1;
+
                     break;
 
                 case State.Gameover:
@@ -145,17 +153,32 @@ namespace YoketoruVS21
                     //MessageBox.Show("Clear");
                     clearLabel.Visible = true;
                     titleButton.Visible = true;
+                    hiLabel.Visible = true;
+                    if(time>hiscore)
+                    {
+                        hiscore = time;
+                        hiLabel.Text = "HighScore" + hiscore;
+                    }
                     break;
             }
         }
 
         void UpdateGame()
         {
+            time--;
+            timeLabel.Text = "Time" + time;
+            if(time<=0)
+            {
+                nextState = State.Gameover;
+            }
+
             Point mp = PointToClient(MousePosition);
 
             // TODO: mpがプレイヤーラベルの中心になるように設定
             for(int i=EnemyIndex;i<ChrMax;i++)
             {
+                if (!chrs[i].Visible) continue;
+
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
 
@@ -194,6 +217,10 @@ namespace YoketoruVS21
                         //アイテム
                         chrs[i].Visible = false;
                         itemCount--;
+                        if(itemCount<=0)
+                        {
+                            nextState = State.Clear;
+                        }
                         leftLabel.Text = "★：" + itemCount;
                     }
                 }
