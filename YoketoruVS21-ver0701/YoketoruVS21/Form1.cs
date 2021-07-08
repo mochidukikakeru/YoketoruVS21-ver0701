@@ -26,6 +26,8 @@ namespace YoketoruVS21
         int[] vx = new int[ChrMax];
         int[] vy = new int[ChrMax];
 
+        int itemCount=10;
+
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
@@ -191,6 +193,8 @@ namespace YoketoruVS21
                     {
                         //アイテム
                         chrs[i].Visible = false;
+                        itemCount--;
+                        leftLabel.Text = "★：" + itemCount;
                     }
                 }
             }
@@ -207,6 +211,11 @@ namespace YoketoruVS21
         }
 
         private void tempLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void leftLabel_Click(object sender, EventArgs e)
         {
 
         }

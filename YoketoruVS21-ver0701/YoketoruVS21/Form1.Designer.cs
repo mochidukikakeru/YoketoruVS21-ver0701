@@ -98,6 +98,7 @@ namespace YoketoruVS21
             this.leftLabel.Size = new System.Drawing.Size(81, 32);
             this.leftLabel.TabIndex = 4;
             this.leftLabel.Text = "★:10";
+            this.leftLabel.Click += new System.EventHandler(this.leftLabel_Click);
             // 
             // hiLabel
             // 
