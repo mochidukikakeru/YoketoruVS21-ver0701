@@ -32,8 +32,8 @@ namespace YoketoruVS21
         const int StartTime = 120;
 
         const string PlayerText = "(・ω・)";
-        const string EnemyText = "◆";
-        const string ItemText = "★";
+        const string EnemyText = "MM";
+        const string ItemText = "WW";
 
         static Random rand = new Random();
 
