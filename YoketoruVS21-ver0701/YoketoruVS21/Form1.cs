@@ -15,7 +15,7 @@ namespace YoketoruVS21
     {
         const bool isDebug = true;
 
-        const int SpeedMax = 15;
+        const int SpeedMax = 10;
 
         const int PlayerMax = 1;
         const int EnemyMax = 10;
@@ -29,7 +29,7 @@ namespace YoketoruVS21
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
-        const int StartTime = 100;
+        const int StartTime = 120;
 
         const string PlayerText = "(・ω・)";
         const string EnemyText = "◆";
